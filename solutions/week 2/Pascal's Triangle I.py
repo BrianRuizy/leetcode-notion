@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    def generate(self, numRows: int) -> List[List[int]]:
+    def generate( numRows: int) -> List[List[int]]:
         if numRows == 1 or numRows < 0:
             return [[1]]
 
@@ -21,4 +21,4 @@ class Solution:
                 current_row.append(1)
                 triangle.append(current_row)
 
-            return triangle
+            return triangle[numRows - 1]
