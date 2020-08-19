@@ -8,39 +8,42 @@
 from collections import defaultdict
 from typing import List
 
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+
+class TreeNode:
+    # Definition for a binary tree node.
+
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 class Solution:
     def verticalTraversal(self, root: TreeNode) -> List[List[int]]:
         if not root:
             return
-        
+
         # Create a dictionary to store vertical order of binary tree nodes
         mapping = defaultdict(list)
-        
+
         # create an empty queue for level order traversal
         # enqueue root node with horizontal distance as 0
         queue = [(root, 0)]
-        
-        while queue: 
+
+        while queue:
             tmp = []
             dic = defaultdict(list)
 
             for node, s in queue:
-                dic[s].append(node.val)    
-                if node.left: 
+                dic[s].append(node.val)
+                if node.left:
                     tmp += (node.left, s-1),
-                if node.right: 
+                if node.right:
                     tmp += (node.right, s+1),
-            
-            for i in dic: 
+
+            for i in dic:
                 mapping[i].extend(sorted(dic[i]))
-                
+
             queue = tmp
-            
+
         return [mapping[i] for i in sorted(mapping)]
