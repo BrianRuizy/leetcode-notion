@@ -48,7 +48,7 @@ class LinkedList:
         self.head = new_node
 
     def append_to_tail(self, data):
-        # adds node with value data to tail of LinkedList
+        #TODO: adds node with value data to tail of LinkedList
         node = Node(data)
         if self.head is not None:
             self.head.next = node
@@ -57,23 +57,39 @@ class LinkedList:
             self.tail
 
     def size(self):
-        current = self.head
+        """traverse list and iterate a counter variable"""
+        curr_ptr = self.head
         count = 0
-        while current is not None:
+        while curr_ptr is not None:
             count += 1
-            current = current.get_next()
+            curr_ptr = curr_ptr.get_next()
         return count
 
     def remove_node(self, target):
-        current = self.head
-        previous = None
-        while current is not None:
-            if current.get_data() == target:
-                if previous:
-                    previous.set_next(current.get_next())
+        """using "Runner" technique"""
+        curr_ptr = self.head  # current node pointer
+        prev_ptr = None  # previous node pointer
+        while curr_ptr is not None:
+            if curr_ptr.get_data() == target:
+                if prev_ptr:
+                    prev_ptr.set_next(curr_ptr.get_next())
                 else:
-                    self.head = current.get_next()
+                    self.head = curr_ptr.get_next()
                 return True
-            previous = current
-            current = current.get_next()
+            prev_ptr = curr_ptr
+            curr_ptr = curr_ptr.get_next()
         return False
+
+    def reverse(self):
+        """will reverse list iteratively,
+        by traversing and flipping the next pointer of each node
+        """
+        curr_ptr = self.head  # current pointer, at head
+        prev_ptr = None  # previous pointer, initialized to null
+        while curr_ptr is not None:
+            temp = curr_ptr.next  # temp pointer, pointing to next node
+            curr_ptr.next = prev_ptr  # reverse link of current_ptr to previous
+            prev_ptr = curr_ptr  # resume traversal
+            curr_ptr = temp
+        self.head = prev_ptr
+        return self
