@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def deleteDuplicates(self, head: ListNode) -> ListNode:
-        """Runner pointer traversal, passing node values to hashmap with unique keys. 
+        """Runner pointer traversal, passing node values to hashmap with duplicate keys. 
         If key already present --hence, unique-- 'delete' that node
         """
         previous = None
