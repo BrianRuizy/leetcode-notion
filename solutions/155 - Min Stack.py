@@ -1,7 +1,5 @@
-import sys
-
-
-# implementation of queue data structure from scratch using list
+# implementation of stack data structure from scratch using linkedlist
+# many solutions I seen use a regular [] list with built in pop(), append() methods
 class Node:
     def __init__(self, data=None, next=None):
         self.data = data
@@ -11,25 +9,22 @@ class Node:
 class MinStack:
     def __init__(self):
         self.head = None
-
-    def __repr__(self):
-        # traverse stack and print all values
-        curr = self.head
-        nodes_list = []
-        while curr:
-            nodes_list.append(str(curr.data))
-            curr = curr.next
-        nodes_list.append('None')
-        return ', '.join(nodes_list)
+        self.smallest = [9223372036854775807]
 
     def pop(self):
         # remove node from head
         current = self.head
+        if current.data == self.smallest[-1]:
+            self.smallest.pop()
         self.head = current.next
         current = None
 
     def push(self, x):
         # insert new node between head and first element in the list
+        # keep track of the smallest number being pushed into the list
+        if x <= self.smallest[-1]:
+            self.smallest.append(x)
+
         new_node = Node(data=x)  # initialize new node
         new_node.next = self.head
         self.head = new_node
@@ -42,13 +37,4 @@ class MinStack:
         return top
 
     def getMin(self):
-        if self.head is None:
-            return None
-
-        minimum = sys.maxsize
-        current = self.head
-        while current is not None:
-            if minimum > current.data:
-                minimum = current.data
-            current = current.next
-        return minimum
+        return self.smallest[-1]
