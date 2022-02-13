@@ -16,11 +16,11 @@ goal of the algorithm is to divide array in half, if our `target` is smaller tha
 
 # Whiteboard
 
-![target = 9](images/704%20Binary%20Search%20406000777e5f4354a1e4eb947aa1d4c1/Screen_Shot_2022-02-12_at_5.36.32_PM.png)
+![target = 9](images/Screen_Shot_2022-02-12_at_5.36.32_PM.png)
 
 target = 9
 
-![target = 2 (not existing)](images/704%20Binary%20Search%20406000777e5f4354a1e4eb947aa1d4c1/Screen_Shot_2022-02-12_at_5.36.49_PM.png)
+![target = 2 (not existing)](images/Screen_Shot_2022-02-12_at_5.36.32_PM.png)
 
 target = 2 (not existing)
 
