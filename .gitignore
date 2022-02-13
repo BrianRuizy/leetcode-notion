@@ -2,5 +2,8 @@ env/
 env
 .env
 
+.idea
+.idea/
+
 .vscode
 vscode
