@@ -5,7 +5,7 @@ Done: Yes
 Last edited: February 15, 2022 5:28 PM
 Topic: binary search
 
-# Problem
+## Problem
 
 You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.
 
@@ -13,7 +13,7 @@ Suppose you have `n` versions `[1, 2, ..., n]` and you want to find out the 
 
 You are given an API `bool isBadVersion(version)` which returns whether `version` is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.
 
-# Solution
+## Solution
 
 Perform an iterative binary search, don’t need to allocate space for array
 
@@ -38,11 +38,11 @@ return n
 
 ```
 
-# Whiteboard
+## Whiteboard
 
 ![Screen Shot 2022-02-15 at 5.14.10 PM.png](images/278.png)
 
-# Code
+## Code
 
 ```python
 # The isBadVersion API is already defined for you.
